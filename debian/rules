@@ -7,6 +7,13 @@ include /usr/share/linux-packaging-snippets/kernel-snippet.mk
 
 debian/control:
 	# Override to enable aarch64 host compat
+	# Remove python prebuilt from control.in for aarch64 compat
+	# Requires a custom path-override-prepare:
+	@HOST_ARCH=$$(uname -m); \
+	if [ "$$HOST_ARCH" = "aarch64" ]; then \
+		sed -i '/android-platform-prebuilts-python-linux-x86-2.7.5,/d' /usr/share/linux-packaging-snippets/control.in; \
+	fi
+	# Droidian var substitutions
 	sed -e "s|@KERNEL_BASE_VERSION@|$(KERNEL_BASE_VERSION)|g" \
 		-e "s|@VARIANT@|$(VARIANT)|g" \
 		-e "s|@DEVICE_VENDOR@|$(DEVICE_VENDOR)|g" \
@@ -16,11 +23,6 @@ debian/control:
 		-e "s|@DEB_BUILD_ON@|$(DEB_BUILD_ON)|g" \
 		-e "s|@DEB_BUILD_FOR@|$(DEB_BUILD_FOR)|g" \
 		/usr/share/linux-packaging-snippets/control.in > debian/control
-	# Remove python prebuilt from control for aarch64
-	@HOST_ARCH=$$(uname -m); \
-	if [ "$$HOST_ARCH" = "aarch64" ]; then \
-		sed -i '/android-platform-prebuilts-python-linux-x86-2.7.5,/d' debian/control; \
-	fi
 
 path-override-prepare:
 	# Override to adapt aarch64 host compat.
