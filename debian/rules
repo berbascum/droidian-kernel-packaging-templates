@@ -29,3 +29,30 @@ path-override-prepare:
 	ln -sf /usr/bin/python debian/path-override/python
 	ln -sf /usr/bin/python debian/path-override/python2
 	ln -sf /usr/bin/python debian/path-override/python2.7
+
+# Use a custom initram for de bootimage creation
+# In this case i use a bookworm one to get working
+# the plymouth messages before the rootfs is mounted
+# Some extra initram overlays will be also added
+# TODO: Look at the recovery initram
+out/KERNEL_OBJ/initramfs.gz:
+	OVERLAY_DIR="$(CURDIR)/debian/initramfs-overlay"; \
+        if [ ! -e "$${OVERLAY_DIR}" ]; then \
+                mkdir -p $${OVERLAY_DIR}; \
+        fi; \
+        tmpdir=$$(mktemp -d); \
+        ( \
+                cd $${tmpdir}; \
+                echo "Downloading initram boot scripts..."; \
+                git clone -b sid https://github.com/droidian-berb/initramfs-droidian-boot-scripts; \
+                rm -rf initramfs-droidian-boot-scripts/.git; \
+                cp -av initramfs-droidian-boot-scripts/* $${OVERLAY_DIR}; \
+                rm -r initramfs-droidian-boot-scripts; \
+                echo "Downloading initram template..."; \
+                wget -q -O ./initram.img-droidian-arm64 https://github.com/droidian-berb/initramfs-droidian-skels/raw/refs/heads/droidian/initramfs-droidian-bookworm-nominienv-arm64-skel_v2; \
+                gunzip -c initram.img-droidian-arm64 | cpio -i; \
+                rm -f initram.img-droidian-arm64; \
+                cp -Rv $${OVERLAY_DIR}/* .; \
+                find . | cpio -o -R 0:0 -H newc | gzip > $(BASEDIR)/$@; \
+        ); \
+        rm -rf $${tmpdir}
