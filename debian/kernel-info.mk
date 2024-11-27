@@ -223,6 +223,12 @@ CLANG_VERSION = 10.0-r370808
 # CLANG_VERSION = 14.0-r450784d
 # CLANG_VERSION = 17.0-r487747
 
+# clang version for arm64 host
+# Supported versions 14 to 18 from debian apt
+# CLANG_CUSTOM = 1 is required
+# Look at Toolchain definition for aarch64 host below
+CLANG_VERSION_ARM64 = 14
+
 # CLANG_CUSTOM
 # Set to 1 to use a manually installed clang prebuilt
 # This will disable the droidian clang package from the build depends
@@ -240,7 +246,22 @@ BUILD_PATH = /usr/lib/llvm-android-$(CLANG_VERSION)/bin
 DEB_TOOLCHAIN = linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
 
 # Where we're building on
+HOST_ARCH = $(shell uname -m)
+ifeq ($(HOST_ARCH),aarch64)
+DEB_BUILD_ON = arm64
+else
 DEB_BUILD_ON = amd64
+endif
+
+# Toolchain definition for aarch64 host
+# Only clangs 14 to 18 are supported
+# Requires the CLANG_VERSION_ARM64 var
+# Some overrides in debian/rules are required for now
+ifeq ($(HOST_ARCH),aarch64)
+CLANG_CUSTOM = 1
+DEB_TOOLCHAIN = linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, clang-$(CLANG_VERSION_ARM64), lld-$(CLANG_VERSION_ARM64), llvm-$(CLANG_VERSION_ARM64)-tools, llvm-$(CLANG_VERSION_ARM64)-dev, llvm-$(CLANG_VERSION_ARM64)-linker-tools
+BUILD_PATH = /usr/lib/llvm-$(CLANG_VERSION_ARM64)/bin
+endif
 
 # Where we're going to run this kernel on
 DEB_BUILD_FOR = arm64
