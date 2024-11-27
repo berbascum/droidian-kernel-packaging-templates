@@ -157,7 +157,7 @@ FLASH_USE_TELNET = 0
 # Device manufacturer. This must match the `ro.product.vendor.manufacturer`
 # Android property. If you don't want to specify this, leave it undefined,
 # FLASH_INFO_CPU will be checked instead.
-FLASH_INFO_MANUFACTURER = Xiaomi
+# FLASH_INFO_MANUFACTURER = Xiaomi
 
 # Device model. This must match the `ro.product.vendor.model`
 # On Xiaomi vayu there are different vendor images (miui 1lineage with diferent ro.ptoduct.vendor.model,
@@ -165,7 +165,7 @@ FLASH_INFO_MANUFACTURER = Xiaomi
 # is also included in the droidian adaptation package
 # Android property. If you don't want to specify this, leave it undefined,
 # FLASH_INFO_CPU will be checked instead.
-FLASH_INFO_MODEL = vayu
+# FLASH_INFO_MODEL = vayu
 #FLASH_INFO_MODEL = M2102J20SG
 #FLASH_INFO_MODEL = POCO X3 Pro
 
@@ -173,7 +173,7 @@ FLASH_INFO_MODEL = vayu
 # we're running on the specific device. Note this is a last-resort
 # method, specifying FLASH_INFO_MANUFACTURER and FLASH_INFO_MODEL is
 # recommended.
-# FLASH_INFO_CPU = Qualcomm Technologies, Inc SM8150
+FLASH_INFO_CPU = Qualcomm Technologies, Inc SM8150
 
 # Space-separated list of supported device ids as reported by fastboot
 # F#LASH_INFO_DEVICE_IDS = sm8151 2a03db75
