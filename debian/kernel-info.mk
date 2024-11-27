@@ -193,6 +193,10 @@ FLASH_INFO_MODEL = M2102J20SG
 # Whether to cross-build. Use 0 (no) or 1.
 BUILD_CROSS = 1
 
+# Enable verbose mode on the make command
+# Requires modifications in the kernel-snippet.mk
+ENABLE_VERBOSE = 0
+
 # (Cross-build only) The build triplet to use. You'll probably want to
 # use aarch64-linux-android- if building Android kernels.
 # might need to use aarch64-linux-gnu- with newer kernels such as GKI
