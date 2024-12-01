@@ -29,7 +29,7 @@ luks_cust_device() {
         yk_present="0"
         t_remain=20
         [ "$(ykinfo -q -2)" ] && yk_present="1"
-        while [ "${t_remain}" -gt "0" ] && [ "${yk_present}" -ne "1" ]; do
+        while [ "${t_remain}" -gt "0" ]; do
                 plymouth message --text="Insert a yubikey or wait to boot in ${t_remain} seconds"
                 [ "$(ykinfo -q -2)" ] && yk_present="1"
                 t_remain=$((t_remain - 1))
