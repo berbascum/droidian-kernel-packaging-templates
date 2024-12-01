@@ -11,13 +11,13 @@ VARIANT = android
 KERNEL_BASE_VERSION = 4.14-0
 
 # The kernel cmdline to use
-KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 console=tty0 systemd.unified_cgroup_hierarchy=0 buildvariant=user
+KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 console=tty0 console=ttyMSM0,115200n8 systemd.unified_cgroup_hierarchy=0 buildvariant=user
 # In development, early access available
 # droidian.lvm.noresize luks.cust.dev=/dev/mmcblk0p4
 # Boot params for debug
 # buildvariant=userdebug 
 # Boot params for testing
-# console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x4a90000
+# earlycon=msm_geni_serial,0x4a90000
 
 # Slug for the device vendor. This is going to be used in the KERNELRELASE
 # and package names.
