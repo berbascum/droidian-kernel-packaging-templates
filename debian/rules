@@ -20,10 +20,10 @@ debian/control:
 		-e "s|@DEB_BUILD_FOR@|$(DEB_BUILD_FOR)|g" \
 		/usr/share/linux-packaging-snippets/control.in > debian/control
 
-path-override-prepare:
+#path-override-prepare:
 	# Override to adapt aarch64 host compat.
 	# Requires removing x86_64 python prebuilt from control
-	mkdir -p debian/path-override
-	ln -sf /usr/bin/python debian/path-override/python
-	ln -sf /usr/bin/python debian/path-override/python2
-	ln -sf /usr/bin/python debian/path-override/python2.7
+#	mkdir -p debian/path-override
+#	ln -sf /usr/bin/python debian/path-override/python
+#	ln -sf /usr/bin/python debian/path-override/python2
+#	ln -sf /usr/bin/python debian/path-override/python2.7
