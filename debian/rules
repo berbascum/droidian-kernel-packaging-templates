@@ -6,6 +6,8 @@ include /usr/share/linux-packaging-snippets/kernel-snippet.mk
 	dh $@
 
 debian/control:
+	## Custom control.in
+	cat /buildd/sources/debian/control.in > /usr/share/linux-packaging-snippets/control.in;
 	#@HOST_ARCH=$$(uname -m); \
 	#if [ "$$HOST_ARCH" = "aarch64" ]; then \
 	#fi
