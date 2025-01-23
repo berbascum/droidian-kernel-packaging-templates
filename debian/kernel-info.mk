@@ -253,7 +253,7 @@ CLANG_FROM_DISTRO = debian
 # official clang config in kernel-snippet will be skipped
 # BUILD_PATH should be configured with the custom path
 # CLANG_VERSION will not be used
-CLANG_CUSTOM = 1
+CLANG_CUSTOM = 0
 
 # Optional:
 # Extra paths to prepend to the PATH variable. You'll probably want
