@@ -254,6 +254,12 @@ CLANG_FROM_DISTRO = debian
 # BUILD_PATH should be configured with the custom path
 # CLANG_VERSION will not be used
 CLANG_CUSTOM = 0
+# Download custom clang
+# CLANG_CUSTOM = 1 required
+# Url: should be a git repo, should finish with .git
+CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
+# Branch: should be specified a branch to clone
+CLANG_CUSTOM_BRANCH = clang-14-r450784e-a14-x86
 
 # Optional:
 # Extra paths to prepend to the PATH variable. You'll probably want
