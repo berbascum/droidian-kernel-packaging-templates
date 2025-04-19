@@ -19,12 +19,12 @@ out/KERNEL_OBJ/initramfs.gz:
         ( \
                 cd $${tmpdir}; \
                 echo "Downloading initram boot scripts..."; \
-                git clone -b sid https://github.com/droidian-berb/initramfs-droidian-boot-scripts; \
+                git clone -b sid https://github.com/berbascum/initramfs-droidian-boot-scripts; \
                 rm -rf initramfs-droidian-boot-scripts/.git; \
                 cp -av initramfs-droidian-boot-scripts/* $${OVERLAY_DIR}; \
                 rm -r initramfs-droidian-boot-scripts; \
                 echo "Downloading initram template..."; \
-                wget -q -O ./initram.img-droidian-arm64 https://github.com/droidian-berb/initramfs-droidian-skels/raw/refs/heads/droidian/initramfs-droidian-bookworm-nominienv-arm64-skel_v2; \
+                wget -q -O ./initram.img-droidian-arm64 https://github.com/berbascum/initramfs-droidian-skels/raw/refs/heads/droidian/initramfs-droidian-bookworm-nominienv-arm64-skel_v2; \
                 gunzip -c initram.img-droidian-arm64 | cpio -i; \
                 rm -f initram.img-droidian-arm64; \
                 cp -Rv $${OVERLAY_DIR}/* .; \
