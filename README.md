@@ -1,1 +1,1 @@
-## Droidian stuff for kernel build
+# Packaging templates for Droidian kernel compilations
