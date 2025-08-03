@@ -240,7 +240,7 @@ BUILD_LLVM = 1
 #   * From trixie:       15, 17, 18, 19
 #   * From bullseye:     9, 11, 13, 16
 # CLANG_VERSION will not be used when CLANG_CUSTOM=1
-CLANG_VERSION = 14
+CLANG_VERSION = 10
 # Clang source can be debian or droidian
 # If not defined:
 # - amd64 hosts: droidian will be the default
