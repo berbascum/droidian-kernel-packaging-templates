@@ -10,6 +10,10 @@ VARIANT = halium11
 # Kernel base version
 KERNEL_BASE_VERSION = 4.14-0
 
+# Enable for append extended info to the kernel release
+#KERNEL_DEVELOPER_NAME = name
+#KBUILD_DROIDIAN_VERSION = d0-rc0
+
 # The kernel cmdline to use
 KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 console=tty0 systemd.unified_cgroup_hierarchy=0 luks.cust.dev=/dev/mmcblk0p4
 # Add to avoid the lvm resize at the first boot

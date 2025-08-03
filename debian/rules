@@ -2,6 +2,11 @@
 
 include /usr/share/linux-packaging-snippets/kernel-snippet.mk
 
+# control override: Add developer to kernel's name
+ifdef KERNEL_DEVELOPER_NAME
+include /usr/share/linux-packaging-snippets/control-override-kernel-release-extended.mk
+endif
+
 %:
 	dh $@
 
