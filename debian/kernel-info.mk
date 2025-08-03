@@ -5,7 +5,7 @@
 # Kernel variant. This is currently used only on the Source package name.
 # Use 'android' for Android kernels ("downstream") or 'mainline' for upstream
 # kernels.
-VARIANT = android
+VARIANT = halium11
 
 # Kernel base version
 KERNEL_BASE_VERSION = 4.14-0
