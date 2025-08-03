@@ -45,6 +45,7 @@ KERNEL_CONFIG_USE_FRAGMENTS = 1
 # Enable kernel config device extra fragments (extended)
 KERNEL_CONFIG_USE_EXTRA_FRAGMENTS = 0
 KERNEL_CONFIG_EXTRA_FRAGMENTS = fragment.config
+# vayu-container.config
 ## Development fragments
 KERNEL_CONFIG_USE_DEVEL_FRAGMENTS = 0
 KERNEL_CONFIG_DEVEL_FRAGMENTS = vayu-test.config vayu-develop.config
