@@ -239,6 +239,7 @@ BUILD_LLVM = 1
 #   * From Droidian 100: 14, 16, 17, 18, 19
 #   * From trixie:       15, 17, 18, 19
 #   * From bullseye:     9, 11, 13, 16
+# CLANG_VERSION will not be used when CLANG_CUSTOM=1
 CLANG_VERSION = 14
 # Clang source can be debian or droidian
 # If not defined:
@@ -247,27 +248,42 @@ CLANG_VERSION = 14
 CLANG_FROM_DISTRO = debian
 # Custom clang:
 # Set to 1 to use a manually installed clang prebuilt,
-# official clang config in kernel-snippet will be skipped
-# BUILD_PATH should be configured with the custom path
-# CLANG_VERSION will not be used
+# REQS:
+  # BUILD_LLVM = 1
+  # BUILD_PATH = /any/clang/valid/path
+# The above CLANG_VERSION var will not be used.
+# A git repo with a branch for each clang version is required.
+# TODO: The download code is on berbascum's compile-clang script. Need to be integrated, for example, in releng-buildpackage.
 CLANG_CUSTOM = 0
 # Download custom clang
 # CLANG_CUSTOM = 1 required
-# Url: should be a git repo, should finish with .git
-CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
+# CLANG_CUSTOM_URL git repo url .git suffix
 # Branch: should be specified a branch to clone
-CLANG_CUSTOM_BRANCH = clang-14-r450784e-a14-x86
+# List of available branches on Berbascum's repo
+  # clang-9-r353983c-a11-x86
+  # clang-10-r377782d-a11-x86
+  # clang-11-r383902b-a11-x86
+  # clang-12-r416183b-a12-x86
+  # clang-14-r450784e-a14-x86
+CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
+CLANG_CUSTOM_VERSION = 11
+CLANG_CUSTOM_REVISION = r383902b
+CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_REVISION)-$(CLANG_CUSTOM_REVISION)-a11-x86
 
-# Optional:
-# Extra paths to prepend to the PATH variable. You'll probably want
-# to specify a custom toolchain path here.
+# BUILD_PATH:
+# Extra paths to prepend to the PATH variable.
+# This var is required by both, Droidian clang, and custom clang.
+# Sample path for Droidian clang
+# BUILD_PATH = /usr/lib/llvm-android-10.0-r370808/bin
+# Sample path for berbascum custom clang
+# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_BRANCH)/bin
 BUILD_PATH = /path/to/custom/toolchain/bin
+
 
 # Extra packages to add to the Build-Depends section. Mainline builds
 # can have this section empty, unless cross-building.
 # The default is enough to install the Android toolchain, including clang.
-
-# DEFAULT DEB_TOOLCHAIN = linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
+# For the kernel-snippet with the clang-version and clang-custom implemetations, no clang packages are required here. Anyway, the snippet will clean the packages list.
 DEB_TOOLCHAIN = device-tree-compiler, linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
 
 # Where we're going to run this kernel on
