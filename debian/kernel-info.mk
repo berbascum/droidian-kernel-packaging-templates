@@ -266,9 +266,8 @@ CLANG_CUSTOM = 0
   # clang-12-r416183b-a12-x86
   # clang-14-r450784e-a14-x86
 CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
-CLANG_CUSTOM_VERSION = 11
-CLANG_CUSTOM_REVISION = r383902b
-CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_REVISION)-$(CLANG_CUSTOM_REVISION)-a11-x86
+CLANG_CUSTOM_VERSION = 10-r377782d
+CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_VERSION)-a11-x86
 
 # BUILD_PATH:
 # Extra paths to prepend to the PATH variable.
@@ -276,7 +275,7 @@ CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_REVISION)-$(CLANG_CUSTOM_REVISION)-a1
 # Sample path for Droidian clang
 # BUILD_PATH = /usr/lib/llvm-android-10.0-r370808/bin
 # Sample path for berbascum custom clang
-# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_BRANCH)/bin
+# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_VERSION)/bin
 BUILD_PATH = /path/to/custom/toolchain/bin
 
 
