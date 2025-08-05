@@ -264,15 +264,21 @@ CLANG_CUSTOM = 0
 # CLANG_CUSTOM = 1 required
 # CLANG_CUSTOM_URL git repo url .git suffix
 # Branch: should be specified a branch to clone
-# List of available branches on Berbascum's repo
+# List of amd64 available branches on Berbascum's repo
   # clang-9-r353983c-a11-x86
   # clang-10-r377782d-a11-x86
   # clang-11-r383902b-a11-x86
   # clang-12-r416183b-a12-x86
   # clang-14-r450784e-a14-x86
+#List of arm64 available branches on Berbascum's repo
+# TODO
+# Clang custom vars
 CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
-CLANG_CUSTOM_VERSION = 10-r377782d
-CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_VERSION)-a11-x86
+CLANG_CUSTOM_VERSION = 10
+CLANG_CUSTOM_REVISION = r377782d
+CLANG_CUSTOM_FULL_VERSION = $(CLANG_CUSTOM_VERSION)-$(CLANG_CUSTOM_REVISION)
+CLANG_CUSTOM_ANDROID = 11
+CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_FULL_VERSION)-a$(CLANG_CUSTOM_ANDROID)-x86
 
 # BUILD_PATH:
 # Extra paths to prepend to the PATH variable.
@@ -282,7 +288,6 @@ CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_VERSION)-a11-x86
 # Sample path for berbascum custom clang
 # BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_VERSION)/bin
 BUILD_PATH = /path/to/custom/toolchain/bin
-
 
 # Extra packages to add to the Build-Depends section. Mainline builds
 # can have this section empty, unless cross-building.
