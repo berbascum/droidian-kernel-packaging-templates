@@ -7,6 +7,8 @@ ifdef KERNEL_DEVELOPER_NAME
 include /usr/share/linux-packaging-snippets/control-override-kernel-release-extended.mk
 endif
 
+include /usr/share/linux-packaging-snippets/kernel-snippet-clang-conf-advanced.mk
+
 %:
 	dh $@
 
