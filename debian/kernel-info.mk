@@ -225,60 +225,59 @@ BUILD_CC = clang
 # Use llvm instead of gcc. Recent Android kernels (past android 12) need llvm.
 BUILD_LLVM = 1
 
-# Set the Droidian official clang version
-# CLANG_VERSION = 6.0-4691093
-# CLANG_VERSION = 9.0-r353983c
-# CLANG_VERSION = 10.0-r370808
-# CLANG_VERSION = 11.0-r383902
-# CLANG_VERSION = 12.0-r416183b
-# CLANG_VERSION = 14.0-r450784d
-# CLANG_VERSION = 17.0-r487747
+# Clang Droidian prebuilts for amd64 hosts
+  #  6.0 4691093     9.0 r353983c    10.0 r370808
+  # 12.0 r416183b   14.0 r450784d
 
-# Set a supported clang version (not for custom toolchains)
-# The versions as string like in the porting guide
-# are also valid for the Droidian apt prebuilts.
-# For the Debian prebuilts, the version should be an int
-# - Droidian apt prebuilts:
-#   * host amd64: 6, 9, 10, 12, 14
-# - Debian apt prebuilts (depends on the apt sources):
+# Clang Debian prebuilts for arm64 (gnu, not android)
+# Requires CLANG_VERSION and should be an int
 #   * From Droidian 100: 14, 16, 17, 18, 19
 #   * From trixie:       15, 17, 18, 19
 #   * From bullseye:     9, 11, 13, 16
-# CLANG_VERSION will not be used when CLANG_CUSTOM=1
-CLANG_VERSION = 10
-# Clang source can be debian or droidian
+## Clang source can be debian or droidian
 # If not defined:
 # - amd64 hosts: droidian will be the default
 # - arm64 hosts: debian will be the default
-CLANG_FROM_DISTRO = debian
+# CLANG_FROM_DISTRO = debian
 
-# Custom clang:
-# Set to 1 to use a manually installed clang prebuilt,
+# CLANG_CUSTOM:
+# Set to 1 to use a not Droidian official clang prebuilt
+# For using a manually installed prebuilt,
+# just enable CLANG_CUSTOM and configure the BUILD_PATH
 # REQS:
   # BUILD_LLVM = 1
   # BUILD_PATH = /any/clang/valid/path
 CLANG_CUSTOM = 0
-# The above CLANG_VERSION var will not be used.
 
-# Download custom clang
+# DOWNLOAD_CLANG_CUSTOM
+# REQS:
+  # CLANG_CUSTOM = 1
 # TODO A custom url is not supported yet
-DOWNLOAD_CLANG_CUSTOM = 0
-# CLANG_CUSTOM = 1 required
-# There are two predefined repos for each arm64 and amd 64 archs
+# Additionallya there are two predefined repos for each arm64 and amd64 archs
 # The repo is autoselected based on the host arch detected,
 # no need any configuration
 # CLANG_CUSTOM_REVISION must be defined
-# List amd64 available branches on Berbascum's repo
-  # TODO: The download code is on berbascum's compile-clang script. Need to be integrated, for example, in releng-buildpackage.
+# CLANG_VERSION is not used
+DOWNLOAD_CLANG_CUSTOM = 0
+
+# Clang berbascum-repo prebuilts for amd64 hosts
+# The branches starting with clang- were cleaned keepeng only
+# the relevant revision:
   # clang-9-r353983c-a11-x86
   # clang-10-r377782d-a11-x86
   # clang-11-r383902b-a11-x86
   # clang-12-r416183b-a12-x86
   # clang-14-r450784e-a14-x86
-# List arm64 available versions
+
+# Clang tomxi1997-repo prebuilts for arm64 hosts
   #  9.0.8 a11 r365631c
   # 11.0.0 a11 r383902
   # 11.0.4 a12 r399163
+
+# CLANG_CUSTOM_REVISION
+## CLANG_VERSION will not be used when CLANG_CUSTOM=1
+CLANG_VERSION = 10
+# TODO: Unify the revision for official and custom
 CLANG_CUSTOM_REVISION = r383902
 # TODO: Next 2 vars are required for amd64-berb-clang-custom
 CLANG_CUSTOM_VERSION = 10
