@@ -251,34 +251,38 @@ CLANG_VERSION = 10
 # - amd64 hosts: droidian will be the default
 # - arm64 hosts: debian will be the default
 CLANG_FROM_DISTRO = debian
+
 # Custom clang:
 # Set to 1 to use a manually installed clang prebuilt,
 # REQS:
   # BUILD_LLVM = 1
   # BUILD_PATH = /any/clang/valid/path
-# The above CLANG_VERSION var will not be used.
-# A git repo with a branch for each clang version is required.
-# TODO: The download code is on berbascum's compile-clang script. Need to be integrated, for example, in releng-buildpackage.
 CLANG_CUSTOM = 0
+# The above CLANG_VERSION var will not be used.
+
 # Download custom clang
+# TODO A custom url is not supported yet
+DOWNLOAD_CLANG_CUSTOM = 0
 # CLANG_CUSTOM = 1 required
-# CLANG_CUSTOM_URL git repo url .git suffix
-# Branch: should be specified a branch to clone
-# List of amd64 available branches on Berbascum's repo
+# There are two predefined repos for each arm64 and amd 64 archs
+# The repo is autoselected based on the host arch detected,
+# no need any configuration
+# CLANG_CUSTOM_REVISION must be defined
+# List amd64 available branches on Berbascum's repo
+  # TODO: The download code is on berbascum's compile-clang script. Need to be integrated, for example, in releng-buildpackage.
   # clang-9-r353983c-a11-x86
   # clang-10-r377782d-a11-x86
   # clang-11-r383902b-a11-x86
   # clang-12-r416183b-a12-x86
   # clang-14-r450784e-a14-x86
-#List of arm64 available branches on Berbascum's repo
-# TODO
-# Clang custom vars
-CLANG_CUSTOM_URL = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
+# List arm64 available versions
+  #  9.0.8 a11 r365631c
+  # 11.0.0 a11 r383902
+  # 11.0.4 a12 r399163
+CLANG_CUSTOM_REVISION = r383902
+# TODO: Next 2 vars are required for amd64-berb-clang-custom
 CLANG_CUSTOM_VERSION = 10
-CLANG_CUSTOM_REVISION = r377782d
-CLANG_CUSTOM_FULL_VERSION = $(CLANG_CUSTOM_VERSION)-$(CLANG_CUSTOM_REVISION)
 CLANG_CUSTOM_ANDROID = 11
-CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_FULL_VERSION)-a$(CLANG_CUSTOM_ANDROID)-x86
 
 # BUILD_PATH:
 # Extra paths to prepend to the PATH variable.
@@ -286,7 +290,7 @@ CLANG_CUSTOM_BRANCH = clang-$(CLANG_CUSTOM_FULL_VERSION)-a$(CLANG_CUSTOM_ANDROID
 # Sample path for Droidian clang
 # BUILD_PATH = /usr/lib/llvm-android-10.0-r370808/bin
 # Sample path for berbascum custom clang
-# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_VERSION)/bin
+# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_FULL_VERSION)/bin
 BUILD_PATH = /path/to/custom/toolchain/bin
 
 # Extra packages to add to the Build-Depends section. Mainline builds
