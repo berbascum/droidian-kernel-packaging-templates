@@ -239,6 +239,9 @@ BUILD_LLVM = 1
 # - amd64 hosts: droidian will be the default
 # - arm64 hosts: debian will be the default
 
+## CLANG_VERSION will be used for Droidian/Debian prebuilts showed above
+CLANG_VERSION = 10
+
 # CLANG_CUSTOM:
 # Set to 1 to use a not Droidian official clang prebuilt
 # For using a manually installed prebuilt,
@@ -274,11 +277,9 @@ DOWNLOAD_CLANG_CUSTOM = 0
   # 11.0.4 a12 r399163
 
 # CLANG_CUSTOM_REVISION
-## CLANG_VERSION will not be used when CLANG_CUSTOM=1
-CLANG_VERSION = 10
 # TODO: Unify the revision for official and custom
 CLANG_CUSTOM_REVISION = r383902
-# TODO: Next 2 vars are required for amd64-berb-clang-custom
+# TODO: CLANG_CUSTOM_ANDROID requied by amd64-berb-clang-custom
 CLANG_CUSTOM_VERSION = 10
 CLANG_CUSTOM_ANDROID = 11
 
