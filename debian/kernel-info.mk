@@ -238,7 +238,6 @@ BUILD_LLVM = 1
 # If not defined:
 # - amd64 hosts: droidian will be the default
 # - arm64 hosts: debian will be the default
-# CLANG_FROM_DISTRO = debian
 
 # CLANG_CUSTOM:
 # Set to 1 to use a not Droidian official clang prebuilt
