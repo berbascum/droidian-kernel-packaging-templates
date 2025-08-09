@@ -226,20 +226,18 @@ BUILD_CC = clang
 BUILD_LLVM = 1
 
 # Clang Droidian prebuilts for amd64 hosts
-  #  6.0 4691093     9.0 r353983c    10.0 r370808
-  # 12.0 r416183b   14.0 r450784d
+  #  6 4691093     9 r353983c    10 r370808
+  # 12 r416183b   14 r450784d
 
 # Clang Debian prebuilts for arm64 (gnu, not android)
 # Requires CLANG_VERSION and should be an int
 #   * From Droidian 100: 14, 16, 17, 18, 19
 #   * From trixie:       15, 17, 18, 19
 #   * From bullseye:     9, 11, 13, 16
-## Clang source can be debian or droidian
-# If not defined:
-# - amd64 hosts: droidian will be the default
-# - arm64 hosts: debian will be the default
+# Currently available versions 11 and 13
 
-## CLANG_VERSION will be used for Droidian/Debian prebuilts showed above
+# CLANG_VERSION will be used for Droidian/Debian prebuilts showed above
+# Must be in integer format
 CLANG_VERSION = 10
 
 # CLANG_CUSTOM:
@@ -277,9 +275,10 @@ DOWNLOAD_CLANG_CUSTOM = 0
   # 11.0.4 a12 r399163
 
 # CLANG_CUSTOM_REVISION
-# TODO: Unify the revision for official and custom
 CLANG_CUSTOM_REVISION = r383902
-# TODO: CLANG_CUSTOM_ANDROID requied by amd64-berb-clang-custom
+# CLANG_CUSTOM_VERSION and CLANG_CUSTOM_ANDROID are requied
+# by amd64-berb-clang-custom.
+# TODO: Should be improved.
 CLANG_CUSTOM_VERSION = 10
 CLANG_CUSTOM_ANDROID = 11
 
