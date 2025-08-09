@@ -268,6 +268,11 @@ DEB_TOOLCHAIN = device-tree-compiler, linux-initramfs-halium-generic:arm64, binu
   # BUILD_PATH = /any/clang/valid/path
 CLANG_CUSTOM = 0
 
+# BUILD_PATH_CLANG_CUSTOM:
+# This var is required here, but is autoconfigured by the
+# clang-conf-advanced snippet
+BUILD_PATH_CLANG_CUSTOM = /some/path/bin
+
 # DOWNLOAD_CLANG_CUSTOM
 # REQS:
   # CLANG_CUSTOM = 1
