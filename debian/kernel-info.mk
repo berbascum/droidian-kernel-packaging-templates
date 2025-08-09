@@ -240,6 +240,25 @@ BUILD_LLVM = 1
 # Must be in integer format
 CLANG_VERSION = 10
 
+# BUILD_PATH:
+# Extra paths to prepend to the PATH variable.
+# This var is required by the official Droidian toolchains
+# Sample path for Droidian clang 10
+# BUILD_PATH = /usr/lib/llvm-android-10.0-r370808/bin
+# When using clang and the clang-conf-advanced snippet,
+# the clang path will be automatically configured
+# Anyway, any other paths configured in BUILD_PATH will be appended to PATH after the clang path
+BUILD_PATH = /path/to/custom/toolchain/bin
+
+# Extra packages to add to the Build-Depends section. Mainline builds
+# can have this section empty, unless cross-building.
+# The default is enough to install the Android toolchain, including clang.
+# When using clang and the clang-conf-advanced snippet,
+# no clang packages are required here.
+# Anyway, the snippet will clean the packages list.
+# Also will be used by the clang-custom feature.
+DEB_TOOLCHAIN = device-tree-compiler, linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
+
 # CLANG_CUSTOM:
 # Set to 1 to use a not Droidian official clang prebuilt
 # For using a manually installed prebuilt,
@@ -281,21 +300,6 @@ CLANG_CUSTOM_REVISION = r383902
 # TODO: Should be improved.
 CLANG_CUSTOM_VERSION = 10
 CLANG_CUSTOM_ANDROID = 11
-
-# BUILD_PATH:
-# Extra paths to prepend to the PATH variable.
-# This var is required by both, Droidian clang, and custom clang.
-# Sample path for Droidian clang
-# BUILD_PATH = /usr/lib/llvm-android-10.0-r370808/bin
-# Sample path for berbascum custom clang
-# BUILD_PATH = /opt/platform.prebuilts.clang.host.linux-x86-$(CLANG_CUSTOM_BRANCH)/clang-$(CLANG_CUSTOM_FULL_VERSION)/bin
-BUILD_PATH = /path/to/custom/toolchain/bin
-
-# Extra packages to add to the Build-Depends section. Mainline builds
-# can have this section empty, unless cross-building.
-# The default is enough to install the Android toolchain, including clang.
-# For the kernel-snippet with the clang-version and clang-custom implemetations, no clang packages are required here. Anyway, the snippet will clean the packages list.
-DEB_TOOLCHAIN = device-tree-compiler, linux-initramfs-halium-generic:arm64, binutils-aarch64-linux-gnu, gcc-4.9-aarch64-linux-android, g++-4.9-aarch64-linux-android, libgcc-4.9-dev-aarch64-linux-android-cross
 
 # Where we're going to run this kernel on
 DEB_BUILD_FOR = arm64
