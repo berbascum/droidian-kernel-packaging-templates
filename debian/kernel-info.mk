@@ -225,6 +225,9 @@ BUILD_CC = clang
 # Use llvm instead of gcc. Recent Android kernels (past android 12) need llvm.
 BUILD_LLVM = 1
 
+# Set to 1 to skip modules packaging if CONFIG_MODULES is disabled in defconfig
+BUILD_SKIP_MODULES = 0
+
 # Clang Droidian prebuilts for amd64 hosts
   #  6 4691093     9 r353983c    10 r370808
   # 12 r416183b   14 r450784d
