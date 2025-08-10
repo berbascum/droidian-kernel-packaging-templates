@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Patching the main repo .gitignore"
+
+# patch for the kernel source .gitignore
 sed -i 's|^/debian/|#/debian/|g' .gitignore
 
 echo "" >> .gitignore
@@ -27,3 +30,10 @@ echo "" >> .gitignore
 echo "## Folllow patches from droidian dir" >> .gitignore
 echo "!droidian/patches" >> .gitignore
 echo "!droidian/**/*.patch" >> .gitignore
+echo "" >> .gitignore
+echo "# Subtree packaging-templates" >> .gitignore
+# echo "!./droidian/scripts" >> .gitignore
+echo "./debian" >> .gitignore
+echo "./droidian" >> .gitignore
+echo "droidian-kernel-packaging/.gitignore" >> .gitignore
+echo "droidian-kernel-packaging/scripts" >> .gitignore
