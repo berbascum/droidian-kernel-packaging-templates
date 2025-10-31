@@ -281,35 +281,49 @@ BUILD_PATH_CLANG_CUSTOM = /some/path/bin
 # DOWNLOAD_CLANG_CUSTOM
 # REQS:
   # CLANG_CUSTOM = 1
-# TODO A custom url is not supported yet
-# Additionallya there are two predefined repos for each arm64 and amd64 archs
-# The repo is autoselected based on the host arch detected,
-# no need any configuration
-# CLANG_CUSTOM_REVISION must be defined
-# CLANG_VERSION is not used
+# EXPERIMENTAL: Early support for change custom url
+# Follow the format in the defaults below
+# There are two predefined repos for each arm64 and amd64 archs
 DOWNLOAD_CLANG_CUSTOM = 0
 
-# Clang berbascum-repo prebuilts for amd64 hosts
+# Clang Prebuilts external repos
+# Clang amd64 hosts: berbascum-repo prebuilts
 # The branches starting with clang- were cleaned keepeng only
-# the relevant revision:
+  # Url: https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
+  # Versions
   # clang-9-r353983c-a11-x86
   # clang-10-r377782d-a11-x86
   # clang-11-r383902b-a11-x86
   # clang-12-r416183b-a12-x86
   # clang-14-r450784e-a14-x86
+# Clang amd64 vars
+# CLANG_CUSTOM_VERSION_<arch> and CLANG_CUSTOM_ANDROID_<arch> might be required
+CLANG_CUSTOM_REVISION_AMD64 = r416183b
+CLANG_CUSTOM_VERSION_AMD64 = 12
+CLANG_CUSTOM_ANDROID_AMD64 = 12
+# Clang custom url amd64
+CLANG_CUSTOM_BRANCH_AMD64 = clang-$(CLANG_CUSTOM_VERSION_AMD64)-$(CLANG_CUSTOM_REVISION_AMD64)-a$(CLANG_CUSTOM_ANDROID_AMD64)-x86
+# CLANG_CUSTOM_FILE_AMD64 =
+CLANG_CUSTOM_URL_AMD64 = https://github.com/android-berb/platform.prebuilts.clang.host.linux-x86.git
 
-# Clang tomxi1997-repo prebuilts for arm64 hosts
-  #  9.0.8 a11 r365631c
+# Clang arm64 hosts: tomxi1997-repo prebuilts
+  # Url latest
+  # https://github.com/tomxi1997/Toolchain-for-aarch64-hosts/releases/download/v15
+  # Url old versions
+  # https://github.com/tomxi1997/AOSP-Clang_arm64/releases/download/v5.1
+  # Versions
+  #  9.0.8 a11 r365631c # Old repo only
   # 11.0.0 a11 r383902
   # 11.0.4 a12 r399163
-
-# CLANG_CUSTOM_REVISION
-CLANG_CUSTOM_REVISION = r383902
-# CLANG_CUSTOM_VERSION and CLANG_CUSTOM_ANDROID are requied
-# by amd64-berb-clang-custom.
-# TODO: Should be improved.
-CLANG_CUSTOM_VERSION = 10
-CLANG_CUSTOM_ANDROID = 11
+# Clang amd64 vars
+# CLANG_CUSTOM_VERSION_<arch> and CLANG_CUSTOM_ANDROID_<arch> might be required
+CLANG_CUSTOM_REVISION_ARM64 = r416183b
+CLANG_CUSTOM_VERSION_ARM64 = 12
+CLANG_CUSTOM_ANDROID_ARM64 = 12
+# Clang custom url arm64
+# CLANG_CUSTOM_BRANCH_ARM64 =
+CLANG_CUSTOM_FILE_ARM64 = clang-$(CLANG_CUSTOM_REVISION_ARM64).tar.xz
+CLANG_CUSTOM_URL_ARM64 = https://github.com/tomxi1997/Toolchain-for-aarch64-hosts/releases/download/v15/$(CLANG_CUSTOM_FILE_ARM64)
 
 # Where we're going to run this kernel on
 DEB_BUILD_FOR = arm64
