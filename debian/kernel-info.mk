@@ -110,10 +110,10 @@ KERNEL_BOOTIMAGE_SECONDIMAGE_OFFSET = 0x00f00000
 KERNEL_BOOTIMAGE_TAGS_OFFSET = 0x00000100
 
 # Specify boot image security patch level if needed
-KERNEL_BOOTIMAGE_PATCH_LEVEL = 2021-10-01
+KERNEL_BOOTIMAGE_PATCH_LEVEL = 2022-01-01
 
 # Specify boot image OS version if needed
-# KERNEL_BOOTIMAGE_OS_VERSION = 12.0.0
+# KERNEL_BOOTIMAGE_OS_VERSION = 11.0.0
 
 # Required for header version 2, ignore otherwise
 # GKI devices should leave this offset empty
