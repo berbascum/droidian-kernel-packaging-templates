@@ -315,6 +315,8 @@ CLANG_CUSTOM_URL_AMD64 = https://github.com/android-berb/platform.prebuilts.clan
   #  9.0.8 a11 r365631c # Old repo only
   # 11.0.0 a11 r383902
   # 11.0.4 a12 r399163
+  # 12.0.? a12 r416183b
+  # 14.0.? a14 r450784b | r450784d
 # Clang amd64 vars
 # CLANG_CUSTOM_VERSION_<arch> and CLANG_CUSTOM_ANDROID_<arch> might be required
 CLANG_CUSTOM_REVISION_ARM64 = r416183b
