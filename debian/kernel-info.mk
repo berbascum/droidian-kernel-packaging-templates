@@ -11,7 +11,7 @@ VARIANT = halium11
 KERNEL_BASE_VERSION = 4.14-0
 
 # Enable for append extended info to the kernel release
-#KERNEL_DEVELOPER_NAME = name
+KERNEL_DEVELOPER_NAME = l4v3nx
 #KBUILD_DROIDIAN_VERSION = d0-rc0
 
 # The kernel cmdline to use
