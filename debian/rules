@@ -11,11 +11,3 @@ include /usr/share/linux-packaging-snippets/kernel-snippet-clang-conf-advanced.m
 
 %:
 	dh $@
-
-#path-override-prepare:
-	# Override to adapt aarch64 host compat.
-	# Requires removing x86_64 python prebuilt from control
-#	mkdir -p debian/path-override
-#	ln -sf /usr/bin/python debian/path-override/python
-#	ln -sf /usr/bin/python debian/path-override/python2
-#	ln -sf /usr/bin/python debian/path-override/python2.7
