@@ -44,8 +44,8 @@ DEVICE_FULL_NAME = Xiaomi POCO X3 Pro
 KERNEL_CONFIG_USE_FRAGMENTS = 1
 
 # Enable kernel config device extra fragments (extended)
-KERNEL_CONFIG_USE_EXTRA_FRAGMENTS = 0
-# KERNEL_CONFIG_EXTRA_FRAGMENTS = fragment.config
+KERNEL_CONFIG_USE_EXTRA_FRAGMENTS = 1
+KERNEL_CONFIG_EXTRA_FRAGMENTS = vayu-boot.config
 # vayu-container.config
 ## Development fragments
 KERNEL_CONFIG_USE_DEVEL_FRAGMENTS = 0
