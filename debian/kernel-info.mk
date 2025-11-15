@@ -12,10 +12,11 @@ KERNEL_BASE_VERSION = 4.14-0
 
 # Enable for append extended info to the kernel release
 KERNEL_DEVELOPER_NAME = l4v3nx
-#KBUILD_DROIDIAN_VERSION = d0-rc0
+#KBUILD_DROIDIAN_VERSION = d0-rc0[-debug]
 
 # The kernel cmdline to use
-KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 console=tty0 systemd.unified_cgroup_hierarchy=1
+KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 loop.max_part=7 androidboot.usbcontroller=a600000.dwc3 console=tty0 systemd.unified_cgroup_hierarchy=1 buildvariant=userdebug
+
 # luks.cust.dev=/dev/mmcblk0p4
 # Add to avoid the lvm resize at the first boot
   # droidian.lvm.noresize
@@ -50,8 +51,7 @@ KERNEL_CONFIG_EXTRA_FRAGMENTS = vayu-droidian.config vayu-boot.config vayu-lxc.c
 KERNEL_CONFIG_USE_DEVEL_FRAGMENTS = 0
 # KERNEL_CONFIG_DEVEL_FRAGMENTS = vayu-test.config vayu-develop.config
 KERNEL_CONFIG_USE_DEBUG_FRAGMENTS = 1
-KERNEL_CONFIG_DEBUG_FRAGMENTS = common_fragments/debug.config
-#vayu-debug.config
+KERNEL_CONFIG_DEBUG_FRAGMENTS = common_fragments/debug.config vayu-debug.config
 
 # Whether to use diffconfig to generate the device-specific configuration.
 # If you enable this, you should set KERNEL_CONFIG_USE_FRAGMENTS to 1.
