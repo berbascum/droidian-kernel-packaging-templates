@@ -149,6 +149,10 @@ DEVICE_VBMETA_REQUIRED = 1
 # Use 0 (no, default) or 1.
 DEVICE_VBMETA_IS_SAMSUNG = 0
 
+# boot partition size. If specified, an AVB footer will be added at the
+# end of the bootimage.
+KERNEL_BOOTIMAGE_PARTITION_SIZE = 134217728
+
 ########################################################################
 # Automatic flashing on package upgrades
 ########################################################################
