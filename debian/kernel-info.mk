@@ -46,7 +46,7 @@ KERNEL_CONFIG_USE_FRAGMENTS = 1
 
 # Enable kernel config device extra fragments (extended)
 KERNEL_CONFIG_USE_EXTRA_FRAGMENTS = 1
-KERNEL_CONFIG_EXTRA_FRAGMENTS = vayu-droidian.config vayu-boot.config vayu-lxc.config vayu-container.config vayu-lto-disable.config
+KERNEL_CONFIG_EXTRA_FRAGMENTS = vayu-droidian.config vayu-boot.config vayu-lxc.config vayu-kvm.config vayu-container.config vayu-lto-disable.config
 ## Development fragments
 KERNEL_CONFIG_USE_DEVEL_FRAGMENTS = 0
 # KERNEL_CONFIG_DEVEL_FRAGMENTS = vayu-test.config vayu-develop.config
@@ -151,7 +151,7 @@ DEVICE_VBMETA_IS_SAMSUNG = 0
 
 # boot partition size. If specified, an AVB footer will be added at the
 # end of the bootimage.
-KERNEL_BOOTIMAGE_PARTITION_SIZE = 134217728
+# KERNEL_BOOTIMAGE_PARTITION_SIZE = 134217728
 
 ########################################################################
 # Automatic flashing on package upgrades
