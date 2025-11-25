@@ -22,9 +22,15 @@ KERNEL_BOOTIMAGE_CMDLINE = androidboot.hardware=qcom androidboot.console=ttyMSM0
   # droidian.lvm.noresize
 # In development, early access available
 # droidian.lvm.noresize luks.cust.dev=/dev/mmcblk0p4
-# Boot params for debug
-# buildvariant=user|userdebug
-# Boot params for testing
+
+## Boot params for debug
+      ## buildvariant=user|userdebug
+   ## ramoops_memreserve: Reserve persist log area
+      ## ramoops_memreserve=4M
+   ## disable psi: for production
+      ## cgroup_disable=pressure
+
+## Boot params for testing
 # console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0x4a90000
 
 # Slug for the device vendor. This is going to be used in the KERNELRELASE
