@@ -60,8 +60,8 @@ KERNEL_CONFIG_EXTRA_FRAGMENTS = vayu-halium.config vayu-droidian.config vayu-lxc
 KERNEL_CONFIG_USE_DEVEL_FRAGMENTS = 0
 # KERNEL_CONFIG_DEVEL_FRAGMENTS = vayu-test.config vayu-develop.config
 KERNEL_CONFIG_USE_DEBUG_FRAGMENTS = 1
-KERNEL_CONFIG_DEBUG_FRAGMENTS = common_fragments/debug.config
-# vayu-debug.config
+KERNEL_CONFIG_DEBUG_FRAGMENTS = common_fragments/debug.config vayu-debug-main.config
+# vayu-debug-extra.config
 
 # Whether to use diffconfig to generate the device-specific configuration.
 # If you enable this, you should set KERNEL_CONFIG_USE_FRAGMENTS to 1.
