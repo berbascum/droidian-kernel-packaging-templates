@@ -284,7 +284,7 @@ DEB_TOOLCHAIN = device-tree-compiler, linux-initramfs-halium-generic:arm64, binu
 # REQS:
   # BUILD_LLVM = 1
   # BUILD_PATH = /any/clang/valid/path
-CLANG_CUSTOM = 0
+CLANG_CUSTOM = 1
 
 # BUILD_PATH_CLANG_CUSTOM:
 # This var is required here, but is autoconfigured by the
@@ -297,7 +297,7 @@ BUILD_PATH_CLANG_CUSTOM = /some/path/bin
 # EXPERIMENTAL: Early support for change custom url
 # Follow the format in the defaults below
 # There are two predefined repos for each arm64 and amd64 archs
-DOWNLOAD_CLANG_CUSTOM = 0
+DOWNLOAD_CLANG_CUSTOM = 1
 
 # Clang Prebuilts external repos
 # Clang amd64 hosts: berbascum-repo prebuilts
